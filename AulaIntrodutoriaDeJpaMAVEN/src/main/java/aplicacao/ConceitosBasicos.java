@@ -74,5 +74,27 @@ public class ConceitosBasicos {
 		- Um objeto EntityManagerFactory é utilizado para instanciar objetos EntityManager.
 		
 		- ESCOPO: Tipicamente mantem-se uma instância única de EntityManagerFactory para toda aplicação.
+	
+* Como o JPA trabalha?
+		- Por padrão cria:
+			- Uma tabela com o mesmo nome da CLASSE
+			- E a colunas das tabelas terão os mesmos nomes dos atributos dessa classe
+			
+		- Se quiser que seja outros nomes tem que colocar um annotation e definir o nome
+			- Exemplo:
+				- @Column(name=nomeCompleto")
+				- private String nome;
+				- Nesse exemplo será alterado o nome da coluna que receberia o nome do atributo "nome" e ao criar o mapeamento ficará "nomeCompleto"
+
+* ENTIDADE MONITORADA: 
+	- Para conseguir remover um objeto do tipo Pessoa do banco de dados utilizando o EntityManager:
+	- É preciso que seja uma ENTIDADE MONITORADA:
+		- Para não dar o erro Removing a DETACHED instance dominio.Pessoa#1
+			- O objeto solicitado no caso abaixo será o com o ID = 1 TEM que estar MONITORADO
+			
+	- O que é um OBJETO MONITORADO?
+		- É um objeto que acabou de ser inserido ou um objeto que foi buscado no banco de dados e ainda não fechou o EntityManager
 		
+* MAVEN
+	- É o gerenciador de DEPENDENCIAS e build do JAVA
 */

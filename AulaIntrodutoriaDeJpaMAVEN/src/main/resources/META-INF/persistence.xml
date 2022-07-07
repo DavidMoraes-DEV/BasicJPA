@@ -7,13 +7,20 @@
 
 	<persistence-unit name="exemplo-jpa" transaction-type="RESOURCE_LOCAL">
 	<properties>
+		<!-- SINTAXE de uma string de conexão com MySQL: jdbc:mysql:// -->
+		<!-- Por padrão o localhost seria: 3306 e não precisaria declarar manualmente, tive que colocar o 3307 porque a porta 3306 esta para o MySQL Workbench -->
 		<property name="javax.persistence.jdbc.url"
-			value="jdbc:mysql://localhost/aulaintrodutoriajpa?useSSL=false&amp;serverTimezone=UTC" />
-
+			value="jdbc:mysql://localhost:3307/aulaJPA?useSSL=false&amp;serverTimezone=UTC" />
+		
 		<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+		
 		<property name="javax.persistence.jdbc.user" value="root" />
 		<property name="javax.persistence.jdbc.password" value="" />
 
+		<!--
+		property name="hibernate.hbm2ddl.auto" -> Gera automaticamente um banco de dados
+		COM value="update" para que quando for rodado a aplicação o banco de dados seja atualizado automaticamente de acordo com minhas classes de domínio da aplicação
+		COM value="create" quando rodar a aplicação o banco será zerado e criado os valores novamente-->
 		<property name="hibernate.hbm2ddl.auto" value="update" />
 
 		<!-- https://docs.jboss.org/hibernate/orm/5.4/javadocs/org/hibernate/dialect/package-summary.html -->

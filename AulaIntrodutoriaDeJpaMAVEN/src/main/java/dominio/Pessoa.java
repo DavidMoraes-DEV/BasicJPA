@@ -7,13 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+//Esse annotation indica que essa classe é uma entidade de domínio que vai corresponder a uma tabela
+@Entity 
 public class Pessoa implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY) //Esse annotation indica que essa chave será gerada automaticamente
+	private Integer id; //Como o ID será implementado automaticamente ao criar um objeto pessoa no programa instanciar como NULL
 	private String nome;
 	private String email;
 	
